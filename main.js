@@ -25,14 +25,14 @@
 			  '</thead>' +
 			'<tbody>';
 
-		for (var i = 0; i < monthData.days.length; i++) {
-			var data = monthData.days[i];
+		for (var i = 0; i < monthData.length; i++) {
+			var date = monthData[i];
 			//i能被7整除，即每周第一天
 			if (i % 7 === 0) {
 				html += '<tr>';
 			}
 
-			html += '<td data-date="' + data.date + '">' + data.showDate + '</td>'
+			html += '<td>' + date.showDate + '</td>'
 				//余6，为每周的最后一天
 			if (i % 7 === 6) {
 				html += '</tr>';
@@ -44,10 +44,10 @@
 
 		return html;
 	};
-
-	datepicker.init = function($dom) {
+	
+  datepicker.init = function($dom) {
      var html = datepicker.buildUi();
      $dom.innerHTML = html;
-	};
+  };
 
 })();
